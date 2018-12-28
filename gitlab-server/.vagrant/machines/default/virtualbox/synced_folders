@@ -1,0 +1,1 @@
+{"virtualbox":{"/home/vagrant":{"guestpath":"/home/vagrant","hostpath":"/home/nidhal/devops/gitlab-server","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/home/nidhal/devops/gitlab-server","disabled":false,"__vagrantfile":true}}}

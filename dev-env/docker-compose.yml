@@ -1,0 +1,20 @@
+version: "3.3"
+
+services:
+
+  git-cli:
+    image: iruora/git-cli
+    working_dir: /usr/src/git
+    command: status
+    volumes:
+      - type: bind
+        source: /home/docker/ec2-games
+        target: /usr/src/git
+  maven-tool:
+    image: maven:3.3-jdk-8
+    working_dir: /usr/src/mymaven
+    command: mvn clean install
+    volumes:
+      - type: bind
+        source: /home/docker/ec2-games
+        target: /usr/src/mymaven	

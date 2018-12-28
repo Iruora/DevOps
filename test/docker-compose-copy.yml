@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+
+  git-cli:
+    image: alpine/git
+    volumes:
+      - env-dev:/app
+  
+  maven:
+    image: maven:latest
+    volumes:
+      - env-dev:/app
+volumes:
+  env-dev:
