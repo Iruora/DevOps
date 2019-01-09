@@ -1,0 +1,29 @@
+version: "3"
+
+networks:
+  jenkins_swarm:
+
+volumes:
+    jenkins_data: {}
+
+services:
+  jenkins:
+    image: iruora/jenkins_lts-server
+    ports:
+      - 8080:8080
+    restart: always
+    networks:
+      - jenkins_swarm
+    volumes:
+      - jenkins_data:/var/jenkins_home
+    environment:
+      - "constraint:NODE==cl-leader"
+
+  worker:
+    image: iruora/jenkins2.60.3-slave
+    command: -username jenkins -password jenkins -executors 1
+    networks:
+      - jenkins_swarm
+    environment:
+      - "JENKINS_PORT_8080_TCP_ADDR=jenkins"
+      - "JENKINS_PORT_8080_TCP_PORT=8080"

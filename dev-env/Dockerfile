@@ -1,13 +1,8 @@
-FROM alpine
+FROM debian:7-slim
 
 LABEL maintainer Nidhal Arouri <arouri.nidhal@gmail.com>
 
-RUN apk --update add git openssh && \
-rm -rf /var/lib/apt/lists/* && \
-rm /var/cache/apk/*
+RUN apt-get update && apt-get install -y openssh-server git
 
 VOLUME /git
 WORKDIR /git
-
-ENTRYPOINT ["git"]
-CMD ["--help"]
