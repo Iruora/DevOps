@@ -8,9 +8,9 @@ volumes:
 
 services:
   jenkins:
-    image: jenkins/jenkins:lts
+    image: iruora/jenkins_lts:latest
     ports:
-      - 8080:8080
+      - 10012:8080
     restart: always
     networks:
       - jenkins_swarm
