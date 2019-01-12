@@ -4,6 +4,9 @@ services:
 
   git-cli:
     image: alpine/git
+    deploy:
+      placement:
+        constraints: [node.role == manager]
     working_dir: /usr/src/git
     command: add .
     volumes:
@@ -12,6 +15,9 @@ services:
         target: /usr/src/git
   maven-tool:
     image: maven:3.3-jdk-8
+    deploy:
+      placement:
+        constraints: [node.role == manager]
     working_dir: /usr/src/mymaven
     command: mvn clean install
     volumes:

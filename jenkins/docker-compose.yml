@@ -9,6 +9,9 @@ volumes:
 services:
   jenkins:
     image: iruora/jenkins_lts:latest
+    deploy:
+      placement:
+        constraints: [node.role == manager]
     ports:
       - 10012:8080
     restart: always
